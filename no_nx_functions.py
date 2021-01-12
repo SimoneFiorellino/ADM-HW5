@@ -165,7 +165,7 @@ def get_articles(node,n_clicks,out_links):
 
 ####################################### RQ3 ##########################################
 
-def visit_all(C, category_nodes, in_links, out_links):
+def visit_all(C,category_nodes, in_links, out_links):
     
     ''' PRIMARY STEPS :
     1. We retrieve the set of nodes in C
@@ -210,7 +210,7 @@ def visit_all(C, category_nodes, in_links, out_links):
     
     while len(to_visit) >= 1:
         tree = explore(start, None, out_links)
-        next_node, path, visited = get_next(start,to_visit,tree,out_deg_p)
+        next_node, path, visited = get_next(start,to_visit,tree,out_deg_p, out_links)
         if next_node == start or next_node == None or path == []:
             return 'Not possible'
         exploration += path + [next_node]
@@ -224,7 +224,7 @@ def set_of_pages(l):
     r_index = randint(l_index + 1, len(l))
     return l[l_index:r_index]
 
-def get_next(start, p, tree, out_deg_p):
+def get_next(start, p, tree, out_deg_p, out_links):
         
     ''' We want to sort all nodes left to visit by their distance from the starting node, in decreasing order.
     The nodes are sorted in this way to be more time efficient, since we avoid to look two times for the same 
@@ -250,7 +250,7 @@ def get_next(start, p, tree, out_deg_p):
     
     notice: we alredy know that these nodes will not have the greatest number of crossed nodes '''
     
-    rel_path, crossed = get_paths(p_decreasing, p, start, out_deg_p)
+    rel_path, crossed = get_paths(p_decreasing, p, start, out_links)
     
     ''' Among all nodes that are left to visit we pick as "next" according to this features:
     1. We check the node that maximises the number of crossed nodes. However if the outdegree of this node is 
@@ -276,13 +276,13 @@ def get_next(start, p, tree, out_deg_p):
                     best_node = node
             elif len(crossed[node]) > len(crossed[best_node]):
                 best_node = node
-
+    
     if rel_path[best_node] == []:
         print('Cannot reach', best_node)
     else:
         print('Path to', best_node, ':', rel_path[best_node])
     
-    return best_node, rel_path[best_node], set(rel_path[best_node]+[best_node])
+    return best_node, rel_path[best_node], set(rel_path[best_node])
 
 def sort_nodes(tree, p):
     
