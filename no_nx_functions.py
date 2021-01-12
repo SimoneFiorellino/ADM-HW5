@@ -303,7 +303,7 @@ def get_paths(p_decreasing, p, start, out_links):
     crossed = {node:[] for node in p}
     to_visit = copy.copy(p_decreasing)
     
-    while len(to_visit) > 1:
+    while len(to_visit) >= 1:
         node = to_visit[0]
         clicks,path = shortest_path(start, node, out_links)
         rel_path[node] = path
