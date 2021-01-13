@@ -18,7 +18,7 @@ The repository contains the following files:
 
         > It contains the python file with  the function used with the implementation of the graph with networkx.
              
- 4. [click here](https://nbviewer.jupyter.org/github/SimoneFiorellino/ADM-HW5/blob/main/main.ipynb) to visualize the notebook with nbviewer
+ 4. `[click here](https://nbviewer.jupyter.org/github/SimoneFiorellino/ADM-HW5/blob/main/main.ipynb) to visualize the notebook with nbviewer`
 
      
       
