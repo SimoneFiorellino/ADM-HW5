@@ -8,6 +8,7 @@ The repository contains the following files:
  1. `main.ipynb`:
 
         > It contains the python notebook with the runned cells and the relative outputs for each request.
+        We assumed that the requiered dataset and the notebook are in the same directory
    
  2. `no_nx_functions.py`:
 
