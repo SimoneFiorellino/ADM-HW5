@@ -5,6 +5,7 @@ Functions in this library:
     3. simple_min_cut
     4. augmented_min_cut
 '''
+import random
 
 class BreakException(Exception):
     pass
